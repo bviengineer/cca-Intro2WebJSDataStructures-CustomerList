@@ -10,7 +10,7 @@ var firstName = document.getElementById("first-name"),
         var Customer = function Customer(firstName, lastName){
             this.firstName = firstName;
             this.lastName = lastName;
-            this.id = nextCustomerId++;
+            this.ID = nextCustomerId++;
 
             //Note to self: function wasn't called during demo & will only work if called.
                this.greetFormally = function greetFormally(){
