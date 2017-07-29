@@ -25,7 +25,7 @@ h1 {
     font-weight: bold;
 }
 
-#add-to-list-button {
+#add-to-list-button, #reset-button {
     font-size: 15px;
     color: darkgreen;
 }

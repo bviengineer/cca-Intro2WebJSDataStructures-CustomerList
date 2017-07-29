@@ -1,13 +1,24 @@
 var firstName = document.getElementById("first-name"),
     lastName = document.getElementById("last-name"),
     addToListButton = document.getElementById("add-to-list-button"),
+    resetButton = document.getElementById("reset-button"),
     displayDiv = document.getElementById("display-div"),
-    customerList = [];
+    customerList = [],
+    nextCustomerId = 0;
 
         //function variable that creates a new object constructor
         var Customer = function Customer(firstName, lastName){
             this.firstName = firstName;
             this.lastName = lastName;
+            this.id = nextCustomerId++;
+
+            //Note to self: function wasn't called during demo & will only work if called.
+               this.greetFormally = function greetFormally(){
+               return "Greetings, Mr. or Ms. " + this.lastName;
+            }  
+                this.toString = function toString(){
+                return this.firstName + " " + this.lastName;
+            }      
         }
 
         //looping through array & adding customer to list
@@ -16,7 +27,7 @@ var firstName = document.getElementById("first-name"),
             
             for(i = 0; i < customerList.length; i++){
                 var currentCustomer = customerList[i];
-                displayDiv.innerText += i + ": " + currentCustomer + "\n";
+                displayDiv.innerText += i + ": " + currentCustomer.toString() + "\n";
             }
         }
 
@@ -27,3 +38,11 @@ var firstName = document.getElementById("first-name"),
                 customerList.push(newCustomer);
                updateCustomerList();
         });
+
+
+    resetButton.addEventListener("click", function(){
+            displayDiv.innerText = ""; 
+            firstName.value = "";
+            lastName.value = "";
+        });
+
