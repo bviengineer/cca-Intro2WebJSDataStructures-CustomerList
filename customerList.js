@@ -6,13 +6,12 @@ var firstName = document.getElementById("first-name"),
     customerList = [],
     nextCustomerId = 0;
 
-        //function variable that creates a new object constructor
+        //function customer that creates a new object constructor
         var Customer = function Customer(firstName, lastName){
             this.firstName = firstName;
             this.lastName = lastName;
             this.ID = nextCustomerId++;
-
-            //Note to self: function wasn't called during demo & will only work if called.
+            //Though METHOD wasn't called during demo, it is part of the object Customer and WILL only work if called.
                this.greetFormally = function greetFormally(){
                return "Greetings, Mr. or Ms. " + this.lastName;
             }  
@@ -22,10 +21,10 @@ var firstName = document.getElementById("first-name"),
         }
 
         //looping through array & adding customer to list
-        var updateCustomerList = function updateCustomerList(){
-            displayDiv.innerText = "";
-            
-            for(i = 0; i < customerList.length; i++){
+        var updateCustomerList = function updateCustomerList() {
+            displayDiv.innerText = "";   
+         
+            for(i = 0; i < customerList.length; i++) {
                 var currentCustomer = customerList[i];
                 displayDiv.innerText += i + ": " + currentCustomer.toString() + "\n";
             }
